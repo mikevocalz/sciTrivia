@@ -86,9 +86,9 @@ var opD = document.getElementById("opD");
 var butNext = document.getElementById("butNext");
 var correctAnswer =document.getElementById("correctAnwser");
 
-function loadPrQuest (i) {
- var quest = questions[i];
- prQuestion.textContent = (i + 1) +  ". " + quest.question;
+function loadPrQuest (index) {
+ var quest = questions[index];
+ prQuestion.textContent = (index + 1) +  ". " + quest.question;
  opA.textContent = quest.optionA;
  opB.textContent = quest.optionB;
  opC.textContent = quest.optionC;
