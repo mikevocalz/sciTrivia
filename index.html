@@ -5,25 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
-  <title>..::| Scifi Triva |::..</title>
+  <title>..::| Sci-fi Triva |::..</title>
 </head>
 <body>
   <header>
-    <p>This is a Trivia Game</p>
+    <h1>Power Rangers Trivia Game:</h1>
   </header>
 
 <!--Trivia Questions and Anwsers go below-->
   <main>
-    <h1>Game:</h1>
-    <div class="questions">
-
+    <div class="container">
+    <div id="quizCont" class="questions">
+      <div id="prQuestion" class="question">
+      </div>
+        <form id="quiz" name="prQuiz">
+        <ul>
+          <li><label class="selected"><input type="radio" name="option" value="A"/> <span id="opA"></span></label></li>
+          <li></li><label class="selected"><input type="radio" name="option" value="B"/> <span id="opB"></span></label></li>
+          <li></li><label class="selected"><input type="radio" name="option" value="C"/> <span id="opC"></span></label></li>
+          <li> <label class="selected"><input type="radio" name="option" value="D"/> <span id="opD"></span></label></li>
+        </ul>
+         </form><br>
+         <button id="butNext" class="nxtBTN" onclick="loadPrTrivia();">Next</button>
     </div>
     <h3>Anwsers:</h3>
-    <div class="answers">
+    <div id="correctAnwser" class="answers">
 
     </div>
+  </div>
   </main>
 
-  <script src="index.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
