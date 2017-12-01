@@ -132,7 +132,7 @@ function loadPrTrivia() {
   quesPosition++;
   if (quesPosition == quesTotal - 1) {
     //end of Triva changes button Text to Finished/Morphin Time//
-    butNext.textContent = "Its Morphin Time";
+    butNext.textContent = "Its Morphin' Time";
   }
   if (quesPosition == quesTotal) {
     container.style.display = "none";
