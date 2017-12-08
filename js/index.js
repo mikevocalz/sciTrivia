@@ -7,7 +7,7 @@ var questions = [
     optionC: "1987",
     optionD: "1993",
     anwser: "D",
-    image: "https://goo.gl/9vHFbz"
+    image: "images/q1.png"
   },
   {
     question: "What What Were the Colors of the Original Ranger Team?",
@@ -16,7 +16,7 @@ var questions = [
     optionC: "Red, Blue, Pink, Black  & Yellow",
     optionD: "Black, Blue, Purple, Green, & red",
     anwser: "C",
-    image: "https://goo.gl/bJNuZU"
+    image: "images/q2.png"
   },
   {
     question: "What is the Name of the Green Ranger?",
@@ -25,7 +25,7 @@ var questions = [
     optionC: "Tom Collins",
     optionD: "Jason Weaver",
     anwser: "B",
-    image: "https://goo.gl/iWxx8k"
+    image: "images/q3.png"
   },
   {
     question: "Who was the 1st Yellow Ranger?",
@@ -34,7 +34,7 @@ var questions = [
     optionC: "Kimberly Hart",
     optionD: "Katherine Hillard",
     anwser: "B",
-    image: "https://goo.gl/yhKw4r"
+    image: "images/q4.png"
   },
   {
     question: "In which season did the Rangers get their Ninja Powers?",
@@ -43,7 +43,7 @@ var questions = [
     optionC: "Season 3",
     optionD: "Season 4",
     anwser: "C",
-    image: "https://goo.gl/x2cJmH"
+    image: "images/q5.png"
   },
   {
     question: "Who Gave The Rangers Ninja Powers?",
@@ -52,7 +52,7 @@ var questions = [
     optionC: "Lerigot",
     optionD: "Ninjor",
     anwser: "D",
-    image: "https://goo.gl/Zr8HEV"
+    image: "images/q6.png"
   },
   {
     question: "In which seaon was the Command Center destroyed?",
@@ -61,7 +61,7 @@ var questions = [
     optionC: "Season 3",
     optionD: "Season 4",
     anwser: "C",
-    image:"https://goo.gl/E1G3DH"
+    image:"images/q7.png"
   },
   {
     question: "In Which Season does Lord Zedd Appear?",
@@ -70,7 +70,7 @@ var questions = [
     optionC: "Season 3",
     optionD: "Season 4",
     anwser: "B",
-    image: "https://goo.gl/6ev9fw"
+    image: "images/q8.png"
   },
   {
     question: "What is the Name of  Tommys Talking Sword?",
@@ -78,8 +78,8 @@ var questions = [
     optionB: "Saba",
     optionC: "Power Sword",
     optionD: "Power Blaster",
-    anwser: "A",
-    image: "https://goo.gl/oy5nPw"
+    anwser: "B",
+    image: "images/q9.png"
   },
   {
     question: "Which Ranger was able to defeate Tommy, the Green Ranger?",
@@ -87,14 +87,15 @@ var questions = [
     optionB: "Rocky, the Red Ranger",
     optionC: "Kimberly, The Pink Ranger",
     optionD: "Zack, the Black Ranger",
-    anwser: "A",
-    image: "https://goo.gl/w4xzB7"
+    anwser: "",
+    image: "images/q10.png"
   }
 ];
 //end of 10 Power Rangers Trivia Questions//
 
+
 var questCounter = questions.length;
-var quesTotal = 0;
+var score = 0;
 var quesPosition = 0;
 
 var container = document.getElementById("container");
@@ -115,6 +116,7 @@ function loadPrQuest(index) {
   opC.textContent = quest.optionC;
   opD.textContent = quest.optionD;
   headImg.src = quest.image;
+  // correctAnswer.textContent = quest.anwser;
 }
 
 function loadPrTrivia() {
@@ -126,19 +128,23 @@ function loadPrTrivia() {
   var anwser = selected.value;
 
   if (questions[quesPosition].anwser == anwser) {
-    quesTotal = 10;
+    score +=10;
   }
   selected.checked = false;
   quesPosition++;
-  if (quesPosition == quesTotal - 1) {
+  if (quesPosition == questCounter - 1) {
     //end of Triva changes button Text to Finished/Morphin Time//
     butNext.textContent = "Its Morphin' Time";
+
   }
-  if (quesPosition == quesTotal) {
-    container.style.display = "none";
+  // alert(quesPosition)
+  else if (quesPosition == questCounter) {
+    butNext.textContent = "Its Morphin' Time,  Your Score: " + score + "points";
+    container.style.display = 'none';
     correctAnswer.style.display = "";
-    correctAnswer.textContent = "Ranger Score: " + quesTotal;
+    correctAnswer.textContent = "Ranger Score: " + score;
     return;
+
   }
   loadPrQuest(quesPosition);
 }
