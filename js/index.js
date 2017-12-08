@@ -1,7 +1,7 @@
 var questions = [
   //Start 1 of 10 Power Rangers Trivia Questions//
   {
-    question: "In What Year Did Mighty Morphin Power Ranger Debut in the US?",
+    question: "In What Year Did Mighty Morphin Power Rangers Debut in the US?",
     optionA: "1998",
     optionB: "1990",
     optionC: "1987",
@@ -25,7 +25,7 @@ var questions = [
     optionC: "Tom Collins",
     optionD: "Jason Weaver",
     anwser: "2",
-    image: "/images/q3.png"
+    image: "images/q3.png"
   },
   {
     question: "Who was the 1st Yellow Ranger?",
@@ -34,7 +34,7 @@ var questions = [
     optionC: "Kimberly Hart",
     optionD: "Katherine Hillard",
     anwser: "2",
-    image: "/images/q4.png"
+    image: "images/q4.png"
   },
   {
     question: "In which season did the Rangers get their Ninja Powers?",
@@ -43,7 +43,7 @@ var questions = [
     optionC: "Season 3",
     optionD: "Season 4",
     anwser: "3",
-    image: "/images/q5.png"
+    image: "images/q5.png"
   },
   {
     question: "Who Gave The Rangers Ninja Powers?",
@@ -52,7 +52,7 @@ var questions = [
     optionC: "Lerigot",
     optionD: "Ninjor",
     anwser: "4",
-    image: "/images/q6.png"
+    image: "images/q6.png"
   },
   {
     question: "In which seaon was the Command Center destroyed?",
@@ -61,7 +61,7 @@ var questions = [
     optionC: "Season 3",
     optionD: "Season 4",
     anwser: "3",
-    image:"/images/q7.png"
+    image:"images/q7.png"
   },
   {
     question: "In Which Season does Lord Zedd Appear?",
@@ -70,7 +70,7 @@ var questions = [
     optionC: "Season 3",
     optionD: "Season 4",
     anwser: "2",
-    image: "/images/q8.png"
+    image: "images/q8.png"
   },
   {
     question: "What is the Name of  Tommys Talking Sword?",
@@ -79,7 +79,7 @@ var questions = [
     optionC: "Power Sword",
     optionD: "Power Blaster",
     anwser: "2",
-    image: "/images/q9.png"
+    image: "images/q9.png"
   },
   {
     question: "Which Ranger was able to defeate Tommy, the Green Ranger?",
@@ -88,7 +88,7 @@ var questions = [
     optionC: "Kimberly, The Pink Ranger",
     optionD: "Zack, the Black Ranger",
     anwser: "1",
-    image: "/images/q10.png"
+    image: "images/q10.png"
   }
 ];
 //end of 10 Power Rangers Trivia Questions//
