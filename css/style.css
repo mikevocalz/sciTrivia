@@ -1,7 +1,11 @@
-
-body{
+body {
+  background-color: black;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-	background: black;
 	height: 1000px
 }
 

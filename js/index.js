@@ -6,16 +6,16 @@ var questions = [
     optionB: "1990",
     optionC: "1987",
     optionD: "1993",
-    anwser: "D",
+    anwser: "4",
     image: "images/q1.png"
   },
   {
-    question: "What What Were the Colors of the Original Ranger Team?",
+    question: "What Were the Colors of the Original Ranger Team?",
     optionA: "Pink, Yellow, Green, Blue & White",
     optionB: "Red, White, Pink, Orange& Green",
     optionC: "Red, Blue, Pink, Black  & Yellow",
     optionD: "Black, Blue, Purple, Green, & red",
-    anwser: "C",
+    anwser: "3",
     image: "images/q2.png"
   },
   {
@@ -24,8 +24,8 @@ var questions = [
     optionB: "Tommy Oliver",
     optionC: "Tom Collins",
     optionD: "Jason Weaver",
-    anwser: "B",
-    image: "images/q3.png"
+    anwser: "2",
+    image: "/images/q3.png"
   },
   {
     question: "Who was the 1st Yellow Ranger?",
@@ -33,8 +33,8 @@ var questions = [
     optionB: "Trini Quan",
     optionC: "Kimberly Hart",
     optionD: "Katherine Hillard",
-    anwser: "B",
-    image: "images/q4.png"
+    anwser: "2",
+    image: "/images/q4.png"
   },
   {
     question: "In which season did the Rangers get their Ninja Powers?",
@@ -42,8 +42,8 @@ var questions = [
     optionB: "Season 2",
     optionC: "Season 3",
     optionD: "Season 4",
-    anwser: "C",
-    image: "images/q5.png"
+    anwser: "3",
+    image: "/images/q5.png"
   },
   {
     question: "Who Gave The Rangers Ninja Powers?",
@@ -51,8 +51,8 @@ var questions = [
     optionB: "Zordon",
     optionC: "Lerigot",
     optionD: "Ninjor",
-    anwser: "D",
-    image: "images/q6.png"
+    anwser: "4",
+    image: "/images/q6.png"
   },
   {
     question: "In which seaon was the Command Center destroyed?",
@@ -60,8 +60,8 @@ var questions = [
     optionB: "Season 2",
     optionC: "Season 3",
     optionD: "Season 4",
-    anwser: "C",
-    image:"images/q7.png"
+    anwser: "3",
+    image:"/images/q7.png"
   },
   {
     question: "In Which Season does Lord Zedd Appear?",
@@ -69,8 +69,8 @@ var questions = [
     optionB: "Season 2",
     optionC: "Season 3",
     optionD: "Season 4",
-    anwser: "B",
-    image: "images/q8.png"
+    anwser: "2",
+    image: "/images/q8.png"
   },
   {
     question: "What is the Name of  Tommys Talking Sword?",
@@ -78,8 +78,8 @@ var questions = [
     optionB: "Saba",
     optionC: "Power Sword",
     optionD: "Power Blaster",
-    anwser: "B",
-    image: "images/q9.png"
+    anwser: "2",
+    image: "/images/q9.png"
   },
   {
     question: "Which Ranger was able to defeate Tommy, the Green Ranger?",
@@ -87,65 +87,58 @@ var questions = [
     optionB: "Rocky, the Red Ranger",
     optionC: "Kimberly, The Pink Ranger",
     optionD: "Zack, the Black Ranger",
-    anwser: "",
-    image: "images/q10.png"
+    anwser: "1",
+    image: "/images/q10.png"
   }
 ];
 //end of 10 Power Rangers Trivia Questions//
 
-
-var questCounter = questions.length;
-var score = 0;
 var quesPosition = 0;
+var score = 60;
+var questCounter = questions.length;
 
-var container = document.getElementById("container");
-var prQuestion = document.getElementById("prQuestion");
+var container = document.getElementById('quizContainer');
+var questionEl = document.getElementById('question');
+var op1 = document.getElementById('op1');
+var op2 = document.getElementById('op2');
+var op3 = document.getElementById('op3');
+var op4 = document.getElementById('op4');
 var headImg = document.getElementById("headImg");
-var opA = document.getElementById("opA");
-var opB = document.getElementById("opB");
-var opC = document.getElementById("opC");
-var opD = document.getElementById("opD");
-var butNext = document.getElementById("butNext");
-var correctAnswer = document.getElementById("correctAnwser");
+var nextButton = document.getElementById('nextButton');
+var resultCont = document.getElementById('score');
 
-function loadPrQuest(index) {
-  var quest = questions[index];
-  prQuestion.textContent = index + 1 + ". " + quest.question;
-  opA.textContent = quest.optionA;
-  opB.textContent = quest.optionB;
-  opC.textContent = quest.optionC;
-  opD.textContent = quest.optionD;
+function loadQuestion (rangerQuestion) {
+	var quest = questions[rangerQuestion];
+	questionEl.textContent = (rangerQuestion + 1) + '. ' + quest.question;
+	op1.textContent = quest.optionA;
+	op2.textContent = quest.optionB;
+	op3.textContent = quest.optionC;
+  op4.textContent = quest.optionD;
   headImg.src = quest.image;
-  // correctAnswer.textContent = quest.anwser;
+};
+
+function loadNextQuestion () {
+	var selectedOption = document.querySelector('input[type=radio]:checked');
+	if(!selectedOption){
+		alert("Please Anser or the Morphin' Grid will Break!");
+		return;
+	}
+	var answer = selectedOption.value;
+	if(questions[quesPosition].answer == answer){
+		score ++;
+	}
+	selectedOption.checked = false;
+	quesPosition++;
+	if(quesPosition == questCounter - 1){
+		nextButton.textContent = "Its Morphin' Time";
+	}
+	if(quesPosition == questCounter){
+		container.style.display = 'none';
+		resultCont.style.display = '';
+		resultCont.textContent = 'Score: ' + score;
+		return;
+	}
+	loadQuestion(quesPosition);
 }
 
-function loadPrTrivia() {
-  var selected = document.querySelector("input[type=radio]:checked");
-  if (!selected) {
-    alert("Please Anser or Morphin' Grid will Break!!");
-    return;
-  }
-  var anwser = selected.value;
-
-  if (questions[quesPosition].anwser == anwser) {
-    score +=10;
-  }
-  selected.checked = false;
-  quesPosition++;
-  if (quesPosition == questCounter - 1) {
-    //end of Triva changes button Text to Finished/Morphin Time//
-    butNext.textContent = "Its Morphin' Time";
-
-  }
-  // alert(quesPosition)
-  else if (quesPosition == questCounter) {
-    butNext.textContent = "Its Morphin' Time,  Your Score: " + score + "points";
-    container.style.display = 'none';
-    correctAnswer.style.display = "";
-    correctAnswer.textContent = "Ranger Score: " + score;
-    return;
-
-  }
-  loadPrQuest(quesPosition);
-}
-loadPrQuest(quesPosition);
+loadQuestion(quesPosition);
